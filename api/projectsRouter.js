@@ -1,6 +1,6 @@
 const express = require("express");
 
-const projects = require("./data-model");
+const Projects = require("./data-model");
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  projects.addProject().then((projects) => {
+  Projects.addProject(req.body).then((projects) => {
     res.status(200).json(projects);
   });
 });

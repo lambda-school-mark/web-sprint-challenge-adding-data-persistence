@@ -23,9 +23,7 @@ function getResourceById(id) {
 }
 
 function addResource(newResource) {
-  return db("resources")
-    .insert(newResource)
-    .then((id) => getResourceByID(id));
+  return db("resources").insert(newResource);
 }
 
 //projects
@@ -39,11 +37,7 @@ function getProjectById(id) {
 }
 
 function addProject(newProject) {
-  return db("project")
-    .insert(newProject)
-    .then((id) => {
-      getProjectById(id[0]);
-    });
+  return db("projects").insert(newProject);
 }
 
 //tasks
@@ -64,8 +58,6 @@ function getTaskById(id) {
   return db("tasks").where({ id }).first();
 }
 
-function addTask() {
-  return db("tasks")
-    .insert(task)
-    .then((id) => getTaskByID(id));
+function addTask(task) {
+  return db("tasks").insert(task);
 }
